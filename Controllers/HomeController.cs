@@ -22,6 +22,11 @@ namespace MultiRegionDataProtection.Controllers
 
         public IActionResult Index()
         {
+            var userClaims = User.Claims;
+            var serverIp = HttpContext.Connection.LocalIpAddress?.ToString();
+
+            ViewBag.UserClaims = userClaims;
+            ViewBag.ServerIp = serverIp;
             return View();
         }
 

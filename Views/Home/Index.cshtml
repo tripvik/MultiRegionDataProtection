@@ -1,6 +1,10 @@
-﻿@{
+﻿@using System.Security.Claims
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<h3>Server IP:</h3>
+<p>@ViewBag.ServerIp</p>
 
 <form method="post" asp-action="DecryptCookie" class="my-4">
     <div class="form-group">
@@ -15,3 +19,12 @@
     <h3>Decrypted Data:</h3>
     <pre>@ViewBag.DecryptedData</pre>
 }
+
+<h3>User Claims:</h3>
+<ul>
+    @foreach (var claim in (IEnumerable<Claim>)ViewBag.UserClaims)
+    {
+        <li>@claim.Type: @claim.Value</li>
+    }
+</ul>
+
