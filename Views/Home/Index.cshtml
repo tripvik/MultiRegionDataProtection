@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" asp-action="DecryptCookie" class="my-4">
+    <div class="form-group">
+        <label for="cookieValue" class="my-2">Decrypt Auth Cookie</label>
+        <input type="text" id="cookieValue" name="cookieValue" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary my-2">Decrypt Cookie</button>
+</form>
+
+@if (ViewBag.DecryptedData != null)
+{
+    <h3>Decrypted Data:</h3>
+    <pre>@ViewBag.DecryptedData</pre>
+}
